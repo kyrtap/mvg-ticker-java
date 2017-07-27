@@ -18,10 +18,11 @@ class MvgTicker {
 
     /**
      * Get an ArrayList with the upcoming departures from the given station
+     *
      * @param ubahn Include subway trains in the search
      * @param sbahn Include suburban trains in the search
-     * @param bus Include busses in the search
-     * @param tram Include tramways in the search
+     * @param bus   Include busses in the search
+     * @param tram  Include tramways in the search
      * @return an ArrayList with the upcoming departures
      */
     ArrayList<Departure> getDepartures(boolean ubahn, boolean sbahn, boolean bus, boolean tram) {
@@ -34,6 +35,8 @@ class MvgTicker {
             if (bus) url += "&bus=checked";
 
             Document doc = Jsoup.connect(url).get();
+            if (doc.select("td:contains(Es wurde kein Bahnhof mit diesem Namen gefunden.)").first() != null)
+                throw new Exception("Station not found");
             Element content = doc.select("table").get(0);
             Elements rows = content.select("tbody").select("tr");
 

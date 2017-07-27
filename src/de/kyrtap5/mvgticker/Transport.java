@@ -7,6 +7,7 @@ class Transport {
 
     /**
      * Returns the Munich transport type from the given line string
+     *
      * @param input the line String
      * @return the transport type
      */

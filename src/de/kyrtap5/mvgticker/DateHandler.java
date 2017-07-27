@@ -7,6 +7,7 @@ import java.util.Date;
 public class DateHandler {
     /**
      * Get the current date with an optional minute offset
+     *
      * @param minuteOffset the minute offset to be applied
      * @return the current date with offset
      */
@@ -18,7 +19,8 @@ public class DateHandler {
 
     /**
      * Format the date to the given time format
-     * @param date the date to be formatted
+     *
+     * @param date   the date to be formatted
      * @param format the formatting type
      * @return the formatted time String
      */
@@ -28,11 +30,12 @@ public class DateHandler {
 
     /**
      * Compare two dates and return the difference in minutes
+     *
      * @param date1 the later date
      * @param date2 the earlier date
      * @return the difference in minutes
      */
     public static int getDifference(Date date1, Date date2) {
-        return (int) ((date1.getTime()/60000) - (date2.getTime()/60000));
+        return (int) ((date1.getTime() / 60000) - (date2.getTime() / 60000));
     }
 }
