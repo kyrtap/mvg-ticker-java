@@ -9,10 +9,10 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class MVGTicker {
+class MvgTicker {
     private String station;
 
-    public MVGTicker(String station) {
+    MvgTicker(String station) {
         this.station = station;
     }
 
@@ -24,8 +24,8 @@ public class MVGTicker {
      * @param tram Include tramways in the search
      * @return an ArrayList with the upcoming departures
      */
-    public ArrayList<Departure> getDepartures(boolean ubahn, boolean sbahn, boolean bus, boolean tram) {
-        ArrayList<Departure> ret = new ArrayList<Departure>();
+    ArrayList<Departure> getDepartures(boolean ubahn, boolean sbahn, boolean bus, boolean tram) {
+        ArrayList<Departure> ret = new ArrayList<>();
         try {
             String url = "http://www.mvg-live.de/ims/dfiStaticAuswahl.svc?haltestelle=" + URLEncoder.encode(station, "ISO-8859-1");
             if (ubahn) url += "&ubahn=checked";
@@ -38,7 +38,7 @@ public class MVGTicker {
             Elements rows = content.select("tbody").select("tr");
 
             for (Element row : rows) {
-                if (row.className() == "rowOdd" || row.className() == "rowEven") {
+                if (row.className().equals("rowOdd") || row.className().equals("rowEven")) {
                     Elements cols = row.select("td");
                     ret.add(new Departure(cols.get(0).text(), Transport.getTransportType(cols.get(0).text()),
                             cols.get(1).text(), DateHandler.getDate(Integer.parseInt(cols.get(2).text()))));

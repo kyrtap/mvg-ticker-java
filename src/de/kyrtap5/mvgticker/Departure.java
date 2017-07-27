@@ -9,7 +9,7 @@ public class Departure implements Comparable<Departure> {
     private String destination;
     private Date departure;
 
-    public Departure(String line, Transport.Type type, String destination, Date departure) {
+    Departure(String line, Transport.Type type, String destination, Date departure) {
         this.line = line;
         this.type = type;
         this.destination = destination;
@@ -20,7 +20,7 @@ public class Departure implements Comparable<Departure> {
     public String toString() {
         return "Linie: " + line + " (" + type.toString() + ")\t" +
                 "Ziel: " + destination + "\t" +
-                "Abfahrt: " + DateHandler.formatDate(departure, "HH:mm");
+                "Abfahrt: " + DateHandler.formatDate(departure, "HH:mm") + " (" + DateHandler.getDifference(departure, new Date()) + ")";
     }
 
     @Override

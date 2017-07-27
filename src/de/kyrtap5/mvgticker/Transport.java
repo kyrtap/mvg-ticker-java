@@ -1,8 +1,8 @@
 package de.kyrtap5.mvgticker;
 
-public class Transport {
+class Transport {
     public enum Type {
-        BUS, TRAM, UBAHN, SBAHN
+        UBAHN, SBAHN, TRAM, BUS, EXPRESSBUS, NACHTBUS
     }
 
     /**
@@ -10,11 +10,11 @@ public class Transport {
      * @param input the line String
      * @return the transport type
      */
-    public static Type getTransportType(String input) {
+    static Type getTransportType(String input) {
         if (input.startsWith("U")) return Type.UBAHN;
         else if (input.startsWith("S")) return Type.SBAHN;
-        else if (input.startsWith("X")) return Type.BUS;
-        else if (input.startsWith("N")) return Type.BUS;
+        else if (input.startsWith("X")) return Type.EXPRESSBUS;
+        else if (input.startsWith("N")) return Type.NACHTBUS;
         else {
             if (Integer.parseInt(input) < 30) return Type.TRAM;
             else return Type.BUS;
