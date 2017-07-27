@@ -11,3 +11,4 @@ for (Departure d : deps) {
     System.out.println(d.toString());
 }
 ```
+You can also take a look at the Javadoc documentation [here](https://kyrtap5.github.io/mvg-ticker-java/index.html).
