@@ -27,4 +27,20 @@ public class Departure implements Comparable<Departure> {
     public int compareTo(Departure other) {
         return departure.compareTo(other.departure);
     }
+
+    public String getLine() {
+        return line;
+    }
+
+    public Transport.Type getType() {
+        return type;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public Date getDeparture() {
+        return departure;
+    }
 }
